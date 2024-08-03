@@ -91,7 +91,7 @@ const Index = () => {
                   <h3 className="font-semibold mb-2">Output/Console</h3>
                   <pre className="text-sm">
                     {/* Console output would go here */}
-                    > Hello, World!
+                    {`> Hello, World!`}
                   </pre>
                 </div>
               </div>
