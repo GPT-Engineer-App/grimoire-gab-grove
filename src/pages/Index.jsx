@@ -5,23 +5,23 @@ import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { BookOpen, MessageSquare, FolderGit2, Send } from 'lucide-react';
+import { Wand2, MessageSquare, FolderGit2, Send, Code, Terminal } from 'lucide-react';
 
 const Index = () => {
   return (
     <div className="flex flex-col h-screen">
       {/* Header */}
-      <header className="bg-purple-700 text-white p-4">
+      <header className="bg-green-700 text-white p-4">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-2">
-            <BookOpen className="h-6 w-6" />
-            <h1 className="text-2xl font-bold">Grimoire</h1>
+            <Wand2 className="h-6 w-6" />
+            <h1 className="text-2xl font-bold">HackerWizard</h1>
           </div>
           <nav>
             <ul className="flex space-x-4">
-              <li><a href="#" className="hover:text-purple-200">Home</a></li>
-              <li><a href="#" className="hover:text-purple-200">Chat</a></li>
-              <li><a href="#" className="hover:text-purple-200">Projects</a></li>
+              <li><a href="#" className="hover:text-green-200">Spellbook</a></li>
+              <li><a href="#" className="hover:text-green-200">Enchantments</a></li>
+              <li><a href="#" className="hover:text-green-200">Artifacts</a></li>
             </ul>
           </nav>
         </div>
@@ -30,68 +30,66 @@ const Index = () => {
       {/* Main Content */}
       <div className="flex-grow flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-gray-100 p-4">
+        <aside className="w-64 bg-gray-800 text-green-400 p-4">
           <div className="mb-6">
             <h2 className="font-semibold mb-2 flex items-center">
-              <MessageSquare className="h-4 w-4 mr-2" /> Chats
+              <MessageSquare className="h-4 w-4 mr-2" /> Enchantments
             </h2>
             <ScrollArea className="h-40">
               <ul className="space-y-2">
-                <li><a href="#" className="text-sm hover:text-purple-600">Chat 1</a></li>
-                <li><a href="#" className="text-sm hover:text-purple-600">Chat 2</a></li>
-                <li><a href="#" className="text-sm hover:text-purple-600">Chat 3</a></li>
+                <li><a href="#" className="text-sm hover:text-green-300">Firewall Charm</a></li>
+                <li><a href="#" className="text-sm hover:text-green-300">Encryption Spell</a></li>
+                <li><a href="#" className="text-sm hover:text-green-300">Debugging Hex</a></li>
               </ul>
             </ScrollArea>
           </div>
-          <Separator className="my-4" />
+          <Separator className="my-4 bg-green-700" />
           <div>
             <h2 className="font-semibold mb-2 flex items-center">
-              <FolderGit2 className="h-4 w-4 mr-2" /> Projects
+              <FolderGit2 className="h-4 w-4 mr-2" /> Artifacts
             </h2>
             <ScrollArea className="h-40">
               <ul className="space-y-2">
-                <li><a href="#" className="text-sm hover:text-purple-600">Project 1</a></li>
-                <li><a href="#" className="text-sm hover:text-purple-600">Project 2</a></li>
-                <li><a href="#" className="text-sm hover:text-purple-600">Project 3</a></li>
+                <li><a href="#" className="text-sm hover:text-green-300">Quantum Compiler</a></li>
+                <li><a href="#" className="text-sm hover:text-green-300">Neural Network Wand</a></li>
+                <li><a href="#" className="text-sm hover:text-green-300">Blockchain Grimoire</a></li>
               </ul>
             </ScrollArea>
           </div>
         </aside>
 
         {/* Main Area */}
-        <main className="flex-grow p-4">
-          <Tabs defaultValue="chat" className="w-full">
-            <TabsList>
-              <TabsTrigger value="chat">Chat</TabsTrigger>
-              <TabsTrigger value="code">Code</TabsTrigger>
+        <main className="flex-grow p-4 bg-gray-900 text-green-400">
+          <Tabs defaultValue="spellcraft" className="w-full">
+            <TabsList className="bg-gray-800">
+              <TabsTrigger value="spellcraft" className="data-[state=active]:bg-green-700">Spellcraft</TabsTrigger>
+              <TabsTrigger value="codex" className="data-[state=active]:bg-green-700">Codex</TabsTrigger>
             </TabsList>
-            <TabsContent value="chat">
+            <TabsContent value="spellcraft">
               <div className="flex flex-col h-full">
-                <ScrollArea className="flex-grow mb-4 border rounded-md p-4">
-                  {/* Chat messages would go here */}
-                  <p className="mb-2"><strong>AI:</strong> Hello! How can I assist you today?</p>
-                  <p className="mb-2"><strong>You:</strong> Can you help me with a coding problem?</p>
+                <ScrollArea className="flex-grow mb-4 border border-green-700 rounded-md p-4 bg-gray-800">
+                  <p className="mb-2"><strong className="text-green-300">Wizard:</strong> Greetings, apprentice! What cybersecurity enchantment shall we weave today?</p>
+                  <p className="mb-2"><strong className="text-green-300">You:</strong> I seek to fortify my network against dark magic intrusions.</p>
                 </ScrollArea>
                 <div className="flex space-x-2">
-                  <Input placeholder="Type your message..." className="flex-grow" />
-                  <Button>
-                    <Send className="h-4 w-4 mr-2" />
-                    Send
+                  <Input placeholder="Cast your query..." className="flex-grow bg-gray-800 border-green-700 text-green-400" />
+                  <Button className="bg-green-700 hover:bg-green-600">
+                    <Wand2 className="h-4 w-4 mr-2" />
+                    Invoke
                   </Button>
                 </div>
               </div>
             </TabsContent>
-            <TabsContent value="code">
+            <TabsContent value="codex">
               <div className="flex flex-col h-full">
                 <Textarea
-                  placeholder="Write your code here..."
-                  className="flex-grow mb-4 font-mono"
+                  placeholder="Inscribe your arcane algorithms here..."
+                  className="flex-grow mb-4 font-mono bg-gray-800 border-green-700 text-green-400"
                 />
-                <div className="border rounded-md p-4 bg-gray-100">
-                  <h3 className="font-semibold mb-2">Output/Console</h3>
-                  <pre className="text-sm">
-                    {/* Console output would go here */}
-                    {`> Hello, World!`}
+                <div className="border border-green-700 rounded-md p-4 bg-gray-800">
+                  <h3 className="font-semibold mb-2 text-green-300">Arcane Output</h3>
+                  <pre className="text-sm text-green-400">
+                    {`> Encryption spell successfully cast!`}
                   </pre>
                 </div>
               </div>
@@ -101,12 +99,12 @@ const Index = () => {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-200 p-4 text-center text-sm">
+      <footer className="bg-gray-800 text-green-400 p-4 text-center text-sm">
         <nav>
           <ul className="flex justify-center space-x-4">
-            <li><a href="#" className="hover:text-purple-600">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-purple-600">Terms of Service</a></li>
-            <li><a href="#" className="hover:text-purple-600">Contact Us</a></li>
+            <li><a href="#" className="hover:text-green-300">Arcane Privacy</a></li>
+            <li><a href="#" className="hover:text-green-300">Magical Terms</a></li>
+            <li><a href="#" className="hover:text-green-300">Summon Support</a></li>
           </ul>
         </nav>
       </footer>
